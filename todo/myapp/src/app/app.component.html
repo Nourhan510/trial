@@ -1,0 +1,35 @@
+
+<div id="mySidenav" class="sidenav">
+
+  <!-- <form *ngIf="getaddinglist()" >
+      <input type="text" style="width: 100px; heigth:20px; margin-left: 50px; margin-bottom:90px;" #list />
+  </form><br> -->
+  <h2 class="titles">Todo Lists</h2>
+  <a href="#" class="closebtn" (click)="closeNav()">&times;</a>
+  <a href=""  *ngFor="let his of Historyy">{{his}}</a>
+  <a href="#" class="addlistbtn" (click)="addlist()">+</a>
+  <form *ngIf="getaddinglist()" (submit)="addedlist(list.value)">
+      <input type="text" class="addlisttxt" #list />
+  </form>
+</div>
+
+<div id="myDIV" class="header" style="text-align:right" >
+  <button (click)="openNav()" class="btn"><span class="glyphicon glyphicon-th-list"></span></button>
+</div>
+<div id="myDIV" class="header" style="text-align:center">
+  <h2 class="title">Todo</h2>
+  <form >
+      <input type="text" #task  placeholder="write somthing.."/>
+      <button (click)="addtodo(task.value)" class="addBtn">ADD</button>
+  </form>
+</div>
+
+<ul id="myUL" >
+  <li *ngFor="let todo of ToDoList" (click)="checked(task)" >
+    <h2 [style.text-decoration]="getStyle(task)">
+      <span *ngIf="getCheck(task)" class="glyphicon glyphicon-ok" ></span>
+     {{todo}}
+   </h2>
+   <span class="close" (click)="deletetodo(todo)">x</span>
+  </li>
+</ul>
